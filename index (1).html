@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asadullah Asif | Bio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      transition: 0.3s ease;
+    }
+
+    body {
+      background: linear-gradient(-45deg, #e0f2fe, #f1f5f9, #e0f2fe, #f1f5f9);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      color: #111827;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding: 20px;
+      position: relative;
+    }
+
+    body.dark {
+      background: linear-gradient(-45deg, #0f172a, #1e293b, #0f172a, #1e293b);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      color: #f1f5f9;
+    }
+
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Stars Animation */
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .star {
+      position: absolute;
+      background-color: white;
+      border-radius: 50%;
+      animation: twinkle 5s infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+
+    /* Particles Animation */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(59, 130, 246, 0.5);
+      border-radius: 50%;
+      animation: float 15s infinite linear;
+    }
+
+    body.dark .particle {
+      background: rgba(96, 165, 250, 0.5);
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100px) translateX(100px);
+        opacity: 0;
+      }
+    }
+
+    .toggle-mode {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(10px);
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: #111827;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    body.dark .toggle-mode {
+      background: rgba(30,41,59,0.8);
+      color: #f1f5f9;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .main-card {
+      width: 100%;
+      max-width: 450px;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.1);
+      padding: 25px;
+      text-align: center;
+      animation: fadeIn 1s ease forwards;
+      margin-top: 20px;
+    }
+
+    body.dark .main-card {
+      background: rgba(30,41,59,0.8);
+      box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    }
+
+    .salam {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: #10b981;
+      font-weight: 600;
+    }
+
+    .profile-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #3b82f6;
+      margin-bottom: 15px;
+    }
+
+    .name {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .typing-container {
+      margin-top: 5px;
+      height: 24px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+    }
+
+    .typing {
+      color: #3b82f6;
+      border-right: 3px solid #3b82f6;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(22, end) infinite, blink 0.7s step-end infinite;
+    }
+
+    @keyframes typing {
+      0% { width: 0; }
+      50% { width: 100%; }
+      100% { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    .info-card {
+      background: rgba(59,130,246,0.1);
+      border-left: 5px solid #3b82f6;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: left;
+      margin-top: 15px;
+      font-size: 0.95rem;
+      animation: slideUp 1s ease forwards;
+    }
+
+    body.dark .info-card {
+      background: rgba(59,130,246,0.15);
+    }
+
+    .info-card i {
+      color: #3b82f6;
+      margin-right: 8px;
+    }
+
+    .social-section {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      animation: fadeUp 1.5s ease forwards;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 180px;
+      padding: 10px;
+      border-radius: 10px;
+      background: rgba(59,130,246,0.15);
+      text-decoration: none;
+      color: #3b82f6;
+      font-weight: 500;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .social-link i {
+      margin-right: 10px;
+      font-size: 1.3rem;
+    }
+
+    .social-link:hover {
+      background: #3b82f6;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .quote {
+      margin-top: 25px;
+      background: rgba(16,185,129,0.1);
+      border-left: 4px solid #10b981;
+      padding: 15px;
+      border-radius: 10px;
+      font-style: italic;
+      text-align: left;
+      font-size: 0.9rem;
+      animation: fadeUp 2s ease forwards;
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      .main-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-mode" onclick="toggleTheme()">🌙</button>
+
+  <!-- Stars Background -->
+  <div class="stars" id="stars"></div>
+  
+  <!-- Particles Background -->
+  <div class="particles" id="particles"></div>
+
+  <div class="main-card">
+    <div class="salam">ٱلسلام عليكم</div>
+
+    <img src="profile.jpg" alt="Asadullah Asif" class="profile-img" />
+    <h1 class="name">Asadullah Asif</h1>
+    <div class="typing-container">
+      <div class="typing">Student | Dreamer | Learner</div>
+    </div>
+
+    <div class="info-card"><i class="fas fa-city"></i> <b>City:</b> Rangpur</div>
+    <div class="info-card"><i class="fas fa-briefcase"></i> <b>Work:</b> Study</div>
+    <div class="info-card"><i class="fas fa-graduation-cap"></i> <b>Diploma:</b> Dept/ET, (RPI)</div>
+    <div class="info-card"><i class="fas fa-tint"></i> <b>Group:</b> AB+</div>
+
+    <h3 style="margin-top:20px; color:#3b82f6;">Join my social accounts</h3>
+    <div class="social-section">
+      <a href="https://www.facebook.com/share/1Zz5y6QkAk/" class="social-link"><i class="fab fa-facebook"></i> Facebook</a>
+      <a href="https://www.tiktok.com/@moviebox1287?_t=ZS-90FQztQOvKL&_r=1" class="social-link"><i class="fab fa-tiktok"></i> TikTok</a>
+      <a href="https://www.instagram.com/asifmdasadullah?igsh=NWJqajdoOWs4OXdl" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="http://t.me/unknown_0Man" class="social-link"><i class="fab fa-telegram"></i> Telegram</a>
+    </div>
+
+    <div class="quote">
+      “Education is the most powerful weapon which you can use to change the world.” – Nelson Mandela
+    </div>
+  </div>
+
+  <footer>© 2025 Asadullah Asif</footer>
+
+  <script>
+    // Theme Toggle Function
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+      const toggleBtn = document.querySelector('.toggle-mode');
+      toggleBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+      
+      // Update stars visibility
+      updateStarsVisibility();
+    }
+
+    // Create Stars
+    function createStars() {
+      const starsContainer = document.getElementById('stars');
+      const starCount = 100;
+      
+      for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        
+        // Random position and size
+        const size = Math.random() * 3;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        
+        // Random animation delay
+        star.style.animationDelay = `${Math.random() * 5}s`;
+        
+        starsContainer.appendChild(star);
+      }
+    }
+
+    // Update stars visibility based on theme
+    function updateStarsVisibility() {
+      const stars = document.querySelectorAll('.star');
+      stars.forEach(star => {
+        star.style.display = document.body.classList.contains('dark') ? 'block' : 'none';
+      });
+    }
+
+    // Create Particles
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 30;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Random size
+        const size = Math.random() * 10 + 5;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        
+        // Random position
+        particle.style.left = `${Math.random() * 100}%`;
+        
+        // Random animation duration and delay
+        const duration = Math.random() * 20 + 10;
+        const delay = Math.random() * 5;
+        particle.style.animationDuration = `${duration}s`;
+        particle.style.animationDelay = `${delay}s`;
+        
+        particlesContainer.appendChild(particle);
+      }
+    }
+
+    // Initialize everything when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      createStars();
+      createParticles();
+      updateStarsVisibility(); // Hide stars initially in light mode
+    });
+  </script>
+</body>
+</html>
